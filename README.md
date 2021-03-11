@@ -1,4 +1,4 @@
-# landing
+# NAKAMA Landing
 
 ## Project setup
 ```
