@@ -1,0 +1,80 @@
+.tooltip.b-tooltip {
+	opacity: unset;
+	background-color: unset;
+	will-change: unset !important;
+	
+	&.bs-tooltip-top {
+		.arrow {
+			&:before {
+				border-top-color: rgba($tooltip-arrow-color, $tooltip-bg-transparency);
+			}
+		}
+	}
+	
+	&.bs-tooltip-right {
+		.arrow {
+			&:before {
+				border-right-color: rgba($tooltip-arrow-color, $tooltip-bg-transparency);
+			}
+		}
+	}
+	
+	&.bs-tooltip-bottom {
+		.arrow {
+			&:before {
+				border-bottom-color: rgba($tooltip-arrow-color, $tooltip-bg-transparency);
+			}
+		}
+	}
+	
+	&.bs-tooltip-left {
+		.arrow {
+			&:before {
+				border-left-color: rgba($tooltip-arrow-color, $tooltip-bg-transparency);
+			}
+		}
+	}
+	
+	.tooltip-inner {
+		background-color: rgba($tooltip-bg, $tooltip-bg-transparency);
+		backdrop-filter: blur($tooltip-bg-blur);
+	}
+}
+
+@if $bv-enable-tooltip-variants {
+	@each $variant, $value in $theme-colors {
+		.tooltip.b-tooltip-#{$variant} {
+			$tip-bg-color: theme-color-level($variant, $b-tooltip-bg-level);
+			$tip-text-color: color-yiq($tip-bg-color);
+			
+			&.bs-tooltip-top {
+				.arrow::before {
+					border-top-color: rgba($tip-bg-color, $tooltip-bg-transparency);
+				}
+			}
+			
+			&.bs-tooltip-right {
+				.arrow::before {
+					border-right-color: rgba($tip-bg-color, $tooltip-bg-transparency);;
+				}
+			}
+			
+			&.bs-tooltip-bottom {
+				.arrow::before {
+					border-bottom-color: rgba($tip-bg-color, $tooltip-bg-transparency);;
+				}
+			}
+			
+			&.bs-tooltip-left {
+				.arrow::before {
+					border-left-color: rgba($tip-bg-color, $tooltip-bg-transparency);;
+				}
+			}
+			
+			.tooltip-inner {
+				color: $tip-text-color;
+				background-color: rgba($tip-bg-color, $tooltip-bg-transparency);;
+			}
+		}
+	}
+}

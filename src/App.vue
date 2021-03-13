@@ -1,9 +1,5 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -49,10 +45,40 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~vue-select/src/scss/vue-select.scss";
+
+$theme-colors: (
+	"page-bg-light": #F8F8F8,
+	"form-input-bg-light": #F8F8F8,
+	
+	"text-primary-pale-light": #404040,
+	"text-primary-regular-light": #363636,
+	"text-primary-dull-light": #282828,
+	
+	"text-secondary-pale-light": #8A8A8A,
+	"text-secondary-regular-light": #808080,
+	"text-secondary-dull-light": #707070,
+	
+	"icon-bg-light": #E5E5E5,
+	"icon-pale-light": #8A8A8A,
+	"icon-regular-light": #808080,
+	
+	"disabled-light": #CACACA,
+	"channel-navbar-light": #FFFAF8,
+	
+	"theme": #EE4B22,
+	"theme-pale": #FFCCC0,
+	
+	//"custom-blue": #0077FF,
+	"notification-green": #17D63C,
+	"transparent": rgba(255,255,255,0),
+);
+
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap-vue/src/index";
-
-@import "~vue-select/src/scss/vue-select.scss";
+$tooltip-bg-blur: 2px;
+$tooltip-bg-transparency: 0.75;
+@import "./src/styles/tooltip";
 
 html,
 body {
