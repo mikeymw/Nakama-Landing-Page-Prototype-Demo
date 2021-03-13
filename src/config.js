@@ -1,6 +1,4 @@
-export const baseUrl = "https://";
-export const APIUrl = "https://";
-export const APIVersion = "v1.0";
-export const TokenName = "";
-
-export const sentryDSN = "";
+export const baseUrl = "";
+export const apiUrl = "https://api.nakamian.group";
+export const apiVersion = "v1.0";
+export const apiNewVersion = "v1.1";
