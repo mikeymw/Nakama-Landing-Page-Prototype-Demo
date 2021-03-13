@@ -1,6 +1,4 @@
-import { Store } from "vuex";
-
-const LayoutStore = new Store({
+const LayoutStore = {
     namespaced: true,
     state: {
         isSideBarOpen: false,
@@ -48,20 +46,6 @@ const LayoutStore = new Store({
             state.isOffline = true;
         }
     },
-});
-
-window.addEventListener(
-    "online",
-    (evt) => {
-        LayoutStore.commit("layout/online");
-    }
-);
-
-window.addEventListener(
-    "offline",
-    (evt) => {
-        LayoutStore.commit("layout/offline");
-    }
-);
+};
 
 export default LayoutStore;
