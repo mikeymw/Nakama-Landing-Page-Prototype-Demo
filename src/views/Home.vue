@@ -1,30 +1,38 @@
 <template>
-    <div class="home position-relative">
-	    <div class=" w-100 p-1 header">
-		    <button type="button"
-		            class="btn btn-outline-icon-regular-light p-0 border-0 rounded-circle icon-button"
-		            href="#" tabindex="0" v-b-tooltip.bottom.hover.v-text-primary-pale-light.noninteractive
-		            v-bind:title="'Sign In'">
-			    <font-awesome-icon class="w-100 h-100"
-			                       v-bind:icon="['fad', 'user-circle']">
-			    </font-awesome-icon>
-		    </button>
+    <div class="home">
+	    <div class="position-relative w-100 hero">
+		    <img v-bind:src="require('../assets/DJI_0662-HDR-2.jpg')" alt="Hero Image"
+		         class="w-100">
+		    <div class="position-absolute h-100 bg-white test"></div>
+		    <div class="position-absolute w-100 h-100 image-overlay"></div>
 	    </div>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
+	    <h1>testing</h1>
     </div>
 </template>
 
 <script>
-import {
-	VBTooltip,
-} from "bootstrap-vue";
 
 export default {
     name: "Home",
-	
-	directives: {
-		"b-tooltip" : VBTooltip,
-	},
-	
     components: {
 
     },
@@ -43,13 +51,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
-	height: 64px;
-}
-
-.icon-button {
-	width: 40px;
-	height: 40px;
-	font-size: 16px;
+.hero {
+	
+	img {
+		max-height: 768px;
+		object-fit: cover;
+	}
+	
+	.image-overlay {
+		top: 0;
+		left: 0;
+		background-color: rgba(54,54,54,.6);
+		z-index: 1;
+	}
+	
+	.test {
+		top: 0;
+		left: calc(50% - 5px);
+		width: 10px;
+	}
 }
 </style>
