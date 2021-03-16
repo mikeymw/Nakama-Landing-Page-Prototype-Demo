@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="h-100">
-	    <nav class="nav position-fixed w-100 justify-content-center align-items-center header">
+	    <nav class="navbar position-fixed w-100 justify-content-center align-items-center header">
 		    <button type="button" class="position-absolute btn btn-outline-light border-0 rounded h-75 ml-2 p-0 nav-hamburger"
 		            v-on:click="sideBarActive = !sideBarActive"
 		            v-on:blur="sideBarActive = false">
@@ -187,7 +187,7 @@
 	    <nav class="nav position-fixed w-auto flex-column align-items-center side-bar"
 	         v-bind:class="{'active': sideBarActive}">
 		    <a href="#" v-for="title in titles" v-bind:key="title"
-		       class="text-white text-decoration-none py-2 px-3 font-weight-bold"
+		       class="w-100 py-2 px-4 text-white text-decoration-none text-center font-weight-bold"
 		       v-on:mousedown="$event.preventDefault()"
 		       v-on:click="gotoSection(title)">{{title}}</a>
 	    </nav>
@@ -342,6 +342,10 @@ body {
 	
 	&.active {
 		left: 0;
+	}
+	
+	a:hover {
+		background-color: #8A8A8A;
 	}
 }
 </style>
