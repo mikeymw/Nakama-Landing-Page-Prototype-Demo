@@ -264,6 +264,10 @@ body {
     //background-color: rgba(245, 245, 245, 1);
     background-color: #2E4F5E;
 
+	// temporarily fix the font size to prevent any user preset in browser setting
+	// should be removed in production
+	font-size: 16px;
+	
     font-family:
         -apple-system,
         BlinkMacSystemFont,
