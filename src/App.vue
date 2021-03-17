@@ -8,7 +8,7 @@
 		    </button>
 		    <div class="d-flex justify-content-end align-items-center left">
 			    <a href="#" v-for="title in titlesLeft" v-bind:key="title"
-			       class="h5 mb-0 text-white text-decoration-none ml-auto font-weight-bold"
+			       class="h4 mb-0 text-white text-decoration-none ml-auto font-weight-bold"
 			       v-on:click="gotoSection(title)">{{title}}</a>
 		    </div>
 		    <div class="h-100 d-flex justify-content-center align-items-center logo-wrapper">
@@ -180,14 +180,14 @@
 		    </div>
 		    <div class="d-flex align-items-center right">
 			    <a href="#" v-for="title in titlesRight" v-bind:key="title"
-			       class="h5 mb-0 text-white text-decoration-none mr-auto font-weight-bold"
+			       class="h4 mb-0 text-white text-decoration-none mr-auto font-weight-bold"
 			       v-on:click="gotoSection(title)">{{title}}</a>
 		    </div>
 	    </nav>
 	    <nav class="nav position-fixed w-auto flex-column align-items-center side-bar"
 	         v-bind:class="{'active': sideBarActive}">
 		    <a href="#" v-for="title in titles" v-bind:key="title"
-		       class="w-100 py-2 px-4 text-white text-decoration-none text-center font-weight-bold"
+		       class="h4 w-100 py-2 px-4 text-white text-decoration-none text-center font-weight-bold"
 		       v-on:mousedown="$event.preventDefault()"
 		       v-on:click="gotoSection(title)">{{title}}</a>
 	    </nav>

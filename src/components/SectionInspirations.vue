@@ -54,7 +54,7 @@
 				<div v-for="statistic in statistics"
 				     v-bind:key="statistic.text"
 				     v-bind:class="statistic.classBinding"
-				     class="col-12 col-sm-6 col-lg-3 mb-1 text-white d-flex justify-content-center align-items-center statistic">
+				     class="col-6 col-lg-3 mb-1 text-white d-flex justify-content-center align-items-center statistic">
 					<div class="text-center">
 						<font-awesome-icon v-bind:icon="statistic.icon" class="h1 mb-0"></font-awesome-icon>
 						<p class="h4 text-nowrap font-weight-bold">{{statistic.text}}</p>
@@ -88,9 +88,9 @@ export default {
 		return {
 			statistics: [
 				{ icon: ['fas', 'chart-line'], text: "活動", number: "1500", classBinding: ""},
-				{ icon: ['fas', 'glass-cheers'], text: "大型活動", number: "280", classBinding: "pr-xl-4 justify-content-lg-start"},
+				{ icon: ['fas', 'glass-cheers'], text: "大型活動", number: "280", classBinding: "pr-lg-5"},
 				{ icon: ['fas', 'user-tie'], text: "搞手", number: "235", classBinding: ""},
-				{ icon: ['fas', 'users'], text: "會員", number: "15300", classBinding: "pr-xl-4 justify-content-lg-start"},
+				{ icon: ['fas', 'users'], text: "會員", number: "15300", classBinding: "pr-lg-5"},
 			],
 		}
 	}
@@ -117,8 +117,8 @@ export default {
 	
 	.line {
 		top: 0;
-		left: calc(50% - 8px);
-		width: 16px;
+		left: calc(50% - 7px);
+		width: 14px;
 		z-index: 1;
 		
 		&.top {
@@ -129,16 +129,16 @@ export default {
 		
 		&.bottom {
 			top: calc(14px + 50px);
-			height: calc(100% - 14px - 50px);
+			height: calc(100% - 16px - 42px);
 			background-image: linear-gradient(to bottom, #E1A522, #A2BF5A);
 		}
 		
 		@include media-breakpoint-down(md) {
 			// icon md breakpoint 12px + half of icon width - half of line width
-			left: calc(12px + 100px / 2 - 16px / 2);
+			left: calc(12px + 84px / 2 - 14px / 2);
 		}
 		
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(xs) {
 			width: 10px;
 			// icon md breakpoint 12px + half of icon width - half of line width
 			left: calc(12px + 48px / 2 - 10px / 2);
@@ -146,47 +146,37 @@ export default {
 	}
 	
 	.icon {
-		top: 14px;
-		max-width: 100px;
-		left: calc(50% - 50px);
+		top: 16px;
+		max-width: 84px;
+		left: calc(50% - 42px);
 		z-index: 3;
 		
 		@include media-breakpoint-down(md) {
 			left: 12px;
 		}
 		
-		@include media-breakpoint-down(sm) {
+		@include media-breakpoint-down(xs) {
 			max-width: 48px;
 		}
 	}
 	
 	h1 {
 		color: #E9DE44;
-		padding: 0 70px;
-		
-		@include media-breakpoint-down(lg) {
-			font-size: 2.25rem;
-			padding: 0 50px;
-		}
+		padding: 14px 70px;
 		
 		@include media-breakpoint-down(md) {
-			padding: 0 160px;
-		}
-		
-		@include media-breakpoint-down(sm) {
-			font-size: 1.5rem;
-			padding: 0 80px;
-			margin-top: -16px;
+			padding: 14px 140px;
 		}
 		
 		@include media-breakpoint-down(xs) {
-			font-size: 1.25rem;
-			margin-top: -14px;
+			font-size: 1.75rem;
+			padding: 1px 80px;
 		}
 	}
 	
 	.left, .right {
 		padding: 0 60px;
+		opacity: 0;
 		transition: all .75s ease-out;
 		
 		&.active {
@@ -198,25 +188,16 @@ export default {
 			padding: 0 30px 0 20px;
 		}
 		
-		@include media-breakpoint-down(sm) {
-			padding: 0 20px 0 6px;
-			
-			& > * {
-				font-size: 1.5rem;
-			}
-		}
-		
 		@include media-breakpoint-down(xs) {
-			padding: 0 16px 0 20px;
+			padding: 0 15px 0 20px;
 			
 			& > * {
-				font-size: 1.15rem;
+				font-size: 1.25rem;
 			}
 		}
 	}
 	
 	.left {
-		opacity: 0;
 		transform: translateX(-30px);
 		
 		@include media-breakpoint-down(md) {
@@ -225,7 +206,6 @@ export default {
 	}
 	
 	.right {
-		opacity: 0;
 		transform: translateX(30px);
 		
 		@include media-breakpoint-down(md) {
@@ -245,19 +225,19 @@ export default {
 			transform: translateY(0);
 		}
 		
-		@include media-breakpoint-down(lg) {
+		@include media-breakpoint-down(xs) {
 			& > div {
 				:first-child {
-					font-size: 2rem;
+					font-size: 1.5rem;
 				}
 				
 				p {
-					font-size: 1.25rem;
+					font-size: 1rem;
 				}
 			}
 			
 			& > p {
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 		}
 	}
