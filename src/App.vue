@@ -1,14 +1,14 @@
 <template>
     <div id="app" class="h-100">
-	    <nav class="navbar position-fixed w-100 justify-content-center align-items-center header">
+	    <nav class="navbar position-fixed w-100 px-2 justify-content-center align-items-center header">
 		    <button type="button" class="position-absolute btn btn-outline-light border-0 rounded h-75 ml-2 p-0 nav-hamburger"
 		            v-on:click="sideBarActive = !sideBarActive"
 		            v-on:blur="sideBarActive = false">
 			    <font-awesome-icon v-bind:icon="['far', 'bars']"></font-awesome-icon>
 		    </button>
-		    <div class="d-flex justify-content-end left">
+		    <div class="d-flex justify-content-end align-items-center left">
 			    <a href="#" v-for="title in titlesLeft" v-bind:key="title"
-			       class="text-white text-decoration-none ml-auto font-weight-bold"
+			       class="h5 mb-0 text-white text-decoration-none ml-auto font-weight-bold"
 			       v-on:click="gotoSection(title)">{{title}}</a>
 		    </div>
 		    <div class="h-100 d-flex justify-content-center align-items-center logo-wrapper">
@@ -178,9 +178,9 @@
 				    </svg>
 			    </div>
 		    </div>
-		    <div class="d-flex right">
+		    <div class="d-flex align-items-center right">
 			    <a href="#" v-for="title in titlesRight" v-bind:key="title"
-			       class="text-white text-decoration-none mr-auto font-weight-bold"
+			       class="h5 mb-0 text-white text-decoration-none mr-auto font-weight-bold"
 			       v-on:click="gotoSection(title)">{{title}}</a>
 		    </div>
 	    </nav>
@@ -347,5 +347,12 @@ body {
 	a:hover {
 		background-color: #8A8A8A;
 	}
+}
+
+.image-overlay {
+	top: 0;
+	left: 0;
+	background-color: rgba(54,54,54,.6);
+	z-index: 1;
 }
 </style>
