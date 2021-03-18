@@ -1,6 +1,7 @@
 <template>
 	<div class="position-relative w-100 py-4 section-inspirations">
-		<img v-bind:src="require('../assets/section_inspirations.jpeg')" alt="Hero Image" class="position-absolute w-100 h-100">
+		<img v-bind:src="require('../assets/section_inspirations.jpeg')" alt="Hero Image"
+             class="position-absolute w-100 h-100">
 		<div class="position-absolute w-100 h-100 image-overlay"></div>
 		<div class="position-absolute line top"></div>
 		<div class="position-absolute line bottom"></div>
@@ -29,6 +30,9 @@
                     <path d="M34.618 33.279C35.024 34.296 35.472 35.301 35.952 36.292L33.294 37.824L31.656 34.987L34.618 33.279Z" fill="#8F753A"/>
                 </g>
             </svg>
+            <div class="position-absolute icon-glow-wrapper">
+                <div class="icon-glow"></div>
+            </div>
         </div>
 		<h1 class="mb-0 font-weight-bold">INSPIRATIONS</h1>
 		<div class="container-fluid">
@@ -91,83 +95,34 @@ export default {
 
 <style lang="scss" scoped>
 @import "~bootstrap/scss/bootstrap";
+@import "src/styles/sections";
 
 .section-inspirations {
 	z-index: 0;
 	
-	img {
-		top: 0;
-		left: 0;
-		object-fit: cover;
-		z-index: -2;
-	}
-	
-	.image-overlay {
-		backdrop-filter: blur(6px);
-		z-index: -1;
-	}
-	
 	.line {
-		top: 0;
-		left: calc(50% - 7px);
-		width: 14px;
-		z-index: 1;
-		
 		&.top {
-			height: 24px;
 			background-color: #E5D36A;
-			z-index: 2;
+            box-shadow: 0 0 14px 0 #E5D36A;
 		}
 		
 		&.bottom {
-			top: calc(16px + 84px);
-			height: calc(100% - 16px - 42px);
 			background-image: linear-gradient(to bottom, #E1A522, #A2BF5A);
-		}
-		
-		@include media-breakpoint-down(md) {
-			// icon md breakpoint 12px + half of icon width - half of line width
-			left: calc(12px + 84px / 2 - 14px / 2);
-		}
-		
-		@include media-breakpoint-down(xs) {
-			width: 10px;
-			// icon md breakpoint 12px + half of icon width - half of line width
-			left: calc(12px + 48px / 2 - 10px / 2);
-            
-            &.bottom {
-	            top: calc(16px + 50px);
-            }
+			box-shadow: 0 0 14px 0 #E1A522;
 		}
 	}
-	
-	.icon {
-		top: 16px;
-		max-width: 84px;
-		left: calc(50% - 42px);
-		z-index: 3;
-		
-		@include media-breakpoint-down(md) {
-			left: 12px;
-		}
-		
-		@include media-breakpoint-down(xs) {
-			max-width: 48px;
-		}
-	}
+
+    .icon .icon-glow-wrapper {
+        // drop shadow on svg may not be supported by safari, used a clip-path div instead
+	    filter: drop-shadow(0 0 8px #E5D36A);
+
+        .icon-glow {
+            background-color: #E5D36A;
+        }
+    }
 	
 	h1 {
 		color: #E9DE44;
-		padding: 14px 70px;
-		
-		@include media-breakpoint-down(md) {
-			padding: 14px 140px;
-		}
-		
-		@include media-breakpoint-down(xs) {
-			font-size: 1.75rem;
-			padding: 1px 80px;
-		}
 	}
 	
 	.left, .right {

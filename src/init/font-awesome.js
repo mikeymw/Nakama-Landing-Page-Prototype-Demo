@@ -6,6 +6,10 @@ import {
     faGlassCheers as faGlassCheersSolid,
     faUserTie as faUserTieSolid,
     faUsers as faUsersSolid,
+    faQuestion as faQuestionSolid,
+    faAward as faAwardSolid,
+    faMobileAlt as faMobileAltSolid,
+    faChartPie as faChartPieSolid,
 } from "@fortawesome/pro-solid-svg-icons";
 
 import {
@@ -30,6 +34,10 @@ library.add(
     faGlassCheersSolid,
     faUserTieSolid,
     faUsersSolid,
+    faQuestionSolid,
+    faAwardSolid,
+    faMobileAltSolid,
+    faChartPieSolid,
     
     faBarsProRegular,
     
