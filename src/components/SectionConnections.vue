@@ -93,13 +93,15 @@
                 </div>
             </div>
             <div class="row pt-4 py-sm-4 py-lg-5">
-                <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 text-center justify-content-center px-5 download-button"
-                     v-on:click="downloadApp">
-                    <img v-bind:src="require('../assets/apple_download.png')" alt="Apple Download" class="h-100">
+                <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 justify-content-center px-5">
+                    <div class="mx-auto download-button" v-on:click="downloadApp">
+                        <img v-bind:src="require('../assets/apple_download.png')" alt="Apple Download" class="h-100">
+                    </div>
                 </div>
-                <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 text-center justify-content-center px-5 download-button"
-                     v-on:click="downloadApp">
-                    <img v-bind:src="require('../assets/google_download.png')" alt="Apple Download" class="h-100">
+                <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 justify-content-center px-5">
+                    <div class="mx-auto download-button" v-on:click="downloadApp">
+                        <img v-bind:src="require('../assets/google_download.png')" alt="Android Download" class="h-100">
+                    </div>
                 </div>
             </div>
         </div>
@@ -346,11 +348,12 @@ export default {
     }
     
     .download-button {
+        width: fit-content;
 	    height: 80px;
         object-fit: contain;
-	    cursor: pointer;
+        cursor: pointer;
 	    z-index: 9;
-        transition: all .25s ease-in-out;
+        transition: all .15s ease;
         
         &:hover {
             transform: scale(1.03);
