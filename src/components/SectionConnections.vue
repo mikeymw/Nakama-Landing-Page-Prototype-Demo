@@ -58,7 +58,7 @@
                     <div class="text-white rounded-circle d-flex justify-content-center align-items-center flex-shrink-0 icon-wrapper question">
                         <font-awesome-icon v-bind:icon="['fas', 'question']"></font-awesome-icon>
                     </div>
-                    <h2 class="text-white font-weight-bold pl-4">厭倦以貌取人既配對APP，想認識一班真心好友</h2>
+                    <h2 class="text-white text-center text-lg-left font-weight-bold pl-4">厭倦以貌取人既配對APP，想認識一班真心好友</h2>
                 </div>
                 <div class="col-12 col-lg-6 pr-5 px-lg-5 pt-md-4 pt-lg-0 content-column mobile">
                     <div class="d-flex flex-lg-row-reverse justify-content-xl-center align-items-center">
@@ -89,10 +89,10 @@
                     <div class="text-white pb-1 d-flex justify-content-center align-items-center flex-shrink-0 icon-wrapper pie">
                         <font-awesome-icon v-bind:icon="['fas', 'chart-pie']"></font-awesome-icon>
                     </div>
-                    <h2 class="text-white font-weight-bold pl-4">90後佔總群友人數65%，80後群友另設專屬群組</h2>
+                    <h2 class="text-white text-center text-lg-left font-weight-bold pl-4">90後佔總群友人數65%，80後群友另設專屬群組</h2>
                 </div>
             </div>
-            <div class="row pt-4 py-sm-4 py-lg-5">
+            <div class="row pt-4 py-sm-4 py-lg-5 button-wrapper">
                 <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 justify-content-center px-5">
                     <div class="mx-auto download-button" v-on:click="downloadApp">
                         <img v-bind:src="require('../assets/apple_download.png')" alt="Apple Download" class="h-100">
@@ -117,6 +117,7 @@ export default {
         const screenShotWrapper = this.$el.querySelector(".screen-shot-wrapper");
         const mobileContent = this.$el.querySelector("h3");
         const contents = this.$el.querySelectorAll("h2");
+        const buttonWrapper = this.$el.querySelector(".button-wrapper");
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(({ target, isIntersecting }) => {
                 isIntersecting ? target.classList.add("active") : target.classList.remove("active");
@@ -126,6 +127,7 @@ export default {
         observer.observe(screenShotWrapper);
         observer.observe(mobileContent);
         contents.forEach(content => observer.observe(content));
+        observer.observe(buttonWrapper);
     },
     
     methods: {
@@ -347,25 +349,34 @@ export default {
         }
     }
     
-    .download-button {
-        width: fit-content;
-	    height: 80px;
-        object-fit: contain;
-        cursor: pointer;
-	    z-index: 9;
-        transition: all .15s ease;
+    .button-wrapper {
+        opacity: 0;
+        transition: opacity .75s ease-in;
         
-        &:hover {
-            transform: scale(1.03);
+        &.active {
+            opacity: 1;
         }
         
-        &:active {
-            transform: scale(1.03) translateY(3px);
-        }
-        
-        @include media-breakpoint-down(sm) {
-            height: 60px;
-        }
+	    .download-button {
+		    width: fit-content;
+		    height: 80px;
+		    object-fit: contain;
+		    cursor: pointer;
+		    z-index: 9;
+		    transition: all .15s ease;
+		
+		    &:hover {
+			    transform: scale(1.03);
+		    }
+		
+		    &:active {
+			    transform: scale(1.03) translateY(3px);
+		    }
+		
+		    @include media-breakpoint-down(sm) {
+			    height: 60px;
+		    }
+	    }
     }
 }
 </style>
