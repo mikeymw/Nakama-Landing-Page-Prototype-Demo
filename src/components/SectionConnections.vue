@@ -53,7 +53,54 @@
         <h1 class="mb-0 font-weight-bold">CONNECTIONS</h1>
         <div class="container-fluid">
             <div class="row">
-
+                <div class="col-12 col-lg-6 pr-5 px-lg-5 pt-5 pb-4 pb-lg-5
+                d-flex justify-content-xl-center align-items-center align-items-lg-start align-items-xl-center content-column">
+                    <div class="text-white rounded-circle d-flex justify-content-center align-items-center flex-shrink-0 icon-wrapper question">
+                        <font-awesome-icon v-bind:icon="['fas', 'question']"></font-awesome-icon>
+                    </div>
+                    <h2 class="text-white font-weight-bold pl-4">厭倦以貌取人既配對APP，想認識一班真心好友</h2>
+                </div>
+                <div class="col-12 col-lg-6 pr-5 px-lg-5 pt-md-4 pt-lg-0 content-column mobile">
+                    <div class="d-flex flex-lg-row-reverse justify-content-xl-center align-items-center">
+                        <div class="text-white d-flex justify-content-center align-items-center flex-shrink-0 icon-wrapper mobile">
+                            <font-awesome-icon v-bind:icon="['fas', 'mobile-alt']"></font-awesome-icon>
+                        </div>
+                        <h3 class="text-white text-center font-weight-bold pl-4 px-lg-3">NAKAMA活動交友平台APP，提供一個全新平台讓你擴闊圈子</h3>
+                    </div>
+                    <div class="screen-shot-wrapper">
+                        <img v-bind:src="require('../assets/app_1.jpg')" alt="App Screen Shot"
+                             class="app-screen-shot one">
+                        <img v-bind:src="require('../assets/app_2.jpg')" alt="App Screen Shot"
+                             class="app-screen-shot two">
+                        <img v-bind:src="require('../assets/app_3.jpg')" alt="App Screen Shot"
+                             class="app-screen-shot three">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 pr-5 px-lg-5 py-4 py-lg-5
+                d-flex flex-lg-row-reverse justify-content-xl-center align-items-center content-column award">
+                    <div class="text-white pb-1 d-flex justify-content-center align-items-center flex-shrink-0 icon-wrapper award">
+                        <font-awesome-icon v-bind:icon="['fas', 'award']"></font-awesome-icon>
+                    </div>
+                    <h2 class="text-white text-center font-weight-bold pl-4 pl-lg-0 pr-lg-4">會員男女比例長期低於 2：1，遠優於其他交友平台</h2>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-12 col-lg-6 pr-5 px-lg-5 py-4 py-lg-5
+                d-flex justify-content-xl-center align-items-center content-column">
+                    <div class="text-white pb-1 d-flex justify-content-center align-items-center flex-shrink-0 icon-wrapper pie">
+                        <font-awesome-icon v-bind:icon="['fas', 'chart-pie']"></font-awesome-icon>
+                    </div>
+                    <h2 class="text-white font-weight-bold pl-4">90後佔總群友人數65%，80後群友另設專屬群組</h2>
+                </div>
+            </div>
+            <div class="row pt-4 py-sm-4 py-lg-5">
+                <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 text-center justify-content-center px-5 download-button"
+                     v-on:click="downloadApp">
+                    <img v-bind:src="require('../assets/apple_download.png')" alt="Apple Download" class="h-100">
+                </div>
+                <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 text-center justify-content-center px-5 download-button"
+                     v-on:click="downloadApp">
+                    <img v-bind:src="require('../assets/google_download.png')" alt="Apple Download" class="h-100">
+                </div>
             </div>
         </div>
     </div>
@@ -61,7 +108,29 @@
 
 <script>
 export default {
-    name: "SectionConnections"
+    name: "SectionConnections",
+    
+    mounted() {
+        const iconWrappers = this.$el.querySelectorAll(".icon-wrapper");
+        const screenShotWrapper = this.$el.querySelector(".screen-shot-wrapper");
+        const mobileContent = this.$el.querySelector("h3");
+        const contents = this.$el.querySelectorAll("h2");
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(({ target, isIntersecting }) => {
+                isIntersecting ? target.classList.add("active") : target.classList.remove("active");
+            })
+        }, { threshold: .25 });
+        iconWrappers.forEach(icon => observer.observe(icon));
+        observer.observe(screenShotWrapper);
+        observer.observe(mobileContent);
+        contents.forEach(content => observer.observe(content));
+    },
+    
+    methods: {
+        downloadApp() {
+        
+        }
+    }
 }
 </script>
 
@@ -85,7 +154,7 @@ export default {
 	}
 
 	.icon .icon-glow-wrapper {
-		filter: drop-shadow(0 0 8px #A2BF5A);
+		filter: drop-shadow(0 0 10px #A2BF5A);
 
 		.icon-glow {
 			background-color: #A2BF5A;
@@ -95,5 +164,205 @@ export default {
 	h1 {
 		color: #A2BF5A;
 	}
+
+    .content-column {
+        &.mobile {
+            margin-top: -60px;
+            
+            h3 {
+                opacity: 0;
+                transform: translateX(-30px);
+                transition: all .75s ease-out;
+                
+                &.active {
+                    opacity: 1;
+                    transform: translate(0);
+                }
+            }
+            
+            @include media-breakpoint-down(md) {
+                margin-top: 0;
+                
+                h3 {
+                    font-size: 2rem;
+	                transform: translateX(30px);
+                }
+            }
+            
+            @include media-breakpoint-down(xs) {
+                h3 {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+        
+        h2 {
+            opacity: 0;
+            transform: translateX(30px);
+	        transition: all .75s ease-out;
+	
+	        &.active {
+		        opacity: 1;
+		        transform: translate(0);
+	        }
+        }
+        
+        &.award h2 {
+	        transform: translateX(-30px);
+	
+	        &.active {
+		        transform: translate(0);
+	        }
+	
+	        @include media-breakpoint-down(md) {
+		        transform: translateX(30px);
+            }
+        }
+        
+        @include media-breakpoint-down(xs) {
+            padding-left: .7rem;
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+        
+	    .icon-wrapper {
+		    width: 80px;
+		    height: 80px;
+		    font-size: 3.25rem;
+            border-radius: 30px;
+            opacity: 0;
+            z-index: 9;
+            transition: opacity .75s ease-in;
+            
+            @include media-breakpoint-down(xs) {
+	            width: 50px;
+	            height: 50px;
+	            font-size: 2rem;
+	            border-radius: 18px;
+            }
+            
+            &.active {
+                opacity: 1;
+            }
+      
+		    &.question {
+			    background-color: #81E2D9;
+			    box-shadow: 0 0 20px 0 #81E2D9;
+		    }
+            
+            &.mobile {
+	            background-color: #A2BF5A;
+	            box-shadow: 0 0 20px 0 #A2BF5A;
+            }
+            
+            &.award {
+	            background-color: #FFD446;
+	            box-shadow: 0 0 20px 0 #FFD446;
+            }
+            
+            &.pie {
+	            background-color: #FEB6DE;
+	            box-shadow: 0 0 20px 0 #FEB6DE;
+            }
+	    }
+        
+        .screen-shot-wrapper {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            width: 100%;
+            height: 520px;
+            
+            @include media-breakpoint-down(lg) {
+                top: 40%;
+            }
+            
+            @include media-breakpoint-down(md) {
+                position: relative;
+                top: 0;
+	            width: 90%;
+	            margin-left: auto;
+            }
+	
+	        @include media-breakpoint-down(xs) {
+		        height: 400px;
+	        }
+	
+	        &.active {
+		        .app-screen-shot.one, .app-screen-shot.two, .app-screen-shot.three {
+			        opacity: 1;
+			        transform: translate(0);
+			
+			        &:hover {
+				        transform: scale(1.1) translate(0);
+				        z-index: 10;
+				        transition: transform .25s ease;
+			        }
+                }
+	        }
+            
+	        .app-screen-shot {
+		        position: absolute;
+		        height: 400px;
+		        z-index: 9;
+		        transition: all .75s ease-out;
+                
+                @include media-breakpoint-down(xs) {
+                    height: 300px;
+                }
+		
+		        &.one {
+                    opacity: 0;
+                    transform: translateX(-20px);
+			        top: 5%;
+			        left: calc(50% - 180px);
+			
+			        @include media-breakpoint-down(xs) {
+				        left: calc(50% - 100px);
+			        }
+		        }
+		
+		        &.two {
+                    opacity: 0;
+                    transform: translateX(20px);
+			        top: 12%;
+			        left: calc(50% - 5px);
+		        }
+		
+		        &.three {
+                    opacity: 0;
+			        transform: translateY(40px);
+			        top: 18%;
+			        left: calc(50% - 120px);
+			
+			        @include media-breakpoint-down(xs) {
+				        left: calc(50% - 60px);
+			        }
+		        }
+	        }
+        }
+    }
+    
+    .download-button {
+	    height: 80px;
+        object-fit: contain;
+	    cursor: pointer;
+	    z-index: 9;
+        transition: all .25s ease-in-out;
+        
+        &:hover {
+            transform: scale(1.03);
+        }
+        
+        &:active {
+            transform: scale(1.03) translateY(3px);
+        }
+        
+        @include media-breakpoint-down(sm) {
+            height: 60px;
+        }
+    }
 }
 </style>

@@ -22,8 +22,8 @@ img {
 	}
 	
 	&.bottom {
-		top: calc(16px + 84px);
-		height: calc(100% - 16px - 42px);
+		top: 100px;
+		height: calc(100% - 100px);
 		z-index: 4;
 	}
 	
@@ -39,6 +39,7 @@ img {
 		
 		&.bottom {
 			top: calc(16px + 50px);
+			height: calc(100% - 66px);
 		}
 	}
 }

@@ -308,7 +308,7 @@ body {
 	.nav-hamburger {
 		display: none;
 		top: 8px;
-		left: 0;
+		left: .25rem;
 		width: 48px;
 	}
 	

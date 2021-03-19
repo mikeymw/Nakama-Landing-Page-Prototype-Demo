@@ -37,16 +37,16 @@
 		<h1 class="mb-0 font-weight-bold">INSPIRATIONS</h1>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-11 offset-1 col-lg-6 offset-lg-0 left">
+				<div class="col-11 offset-1 col-lg-6 offset-lg-0 px-5 text-content left">
 					<h3 class="text-white font-weight-bold text-center mb-0 py-5">不以商業賺錢為主要目的, 適合以輕鬆交友為目的的朋友！參加者遇到問題也不用擔心求助無門！</h3>
 					<h3 class="text-white font-weight-bold text-center mb-0 pb-5">每月平均有12個以上免費活動！</h3>
 				</div>
-				<div class="col-11 offset-1 col-lg-6 offset-lg-0 right">
+				<div class="col-11 offset-1 col-lg-6 offset-lg-0 px-5 text-content right">
 					<h3 class="text-white font-weight-bold text-center mb-0 pt-1 pb-5">全港最強活動放題, 會員透過參加唔同類型既活動, 令生活多姿多彩！</h3>
 					<h3 class="text-white font-weight-bold text-center mb-0 pb-5">活動由大量以實名登記, 有經驗又熱情的搞手籌備。因為搞手們都有正職, 籌備活動只為興趣, 所以性價比極高！</h3>
 				</div>
 			</div>
-			<div class="row pl-4 pl-lg-0 pb-1">
+			<div class="row pl-4 pl-sm-5 pl-lg-0 pb-1">
 				<div v-for="statistic in statistics"
 				     v-bind:key="statistic.text"
 				     v-bind:class="statistic.classBinding"
@@ -113,8 +113,8 @@ export default {
 	}
 
     .icon .icon-glow-wrapper {
-        // drop shadow on svg may not be supported by safari, used a clip-path div instead
-	    filter: drop-shadow(0 0 8px #E5D36A);
+        // drop shadow on svg is not supported by safari, used a clip-path div instead
+	    filter: drop-shadow(0 0 10px #E5D36A);
 
         .icon-glow {
             background-color: #E5D36A;
@@ -125,42 +125,33 @@ export default {
 		color: #E9DE44;
 	}
 	
-	.left, .right {
-		padding: 0 60px;
+	.text-content {
 		opacity: 0;
 		transition: all .75s ease-out;
+        
+        &.left {
+	        transform: translateX(-30px);
+        }
+        
+        &.right {
+	        transform: translateX(30px);
+        }
 		
-		&.active {
+		&.left.active, &.right.active {
 			opacity: 1;
 			transform: translate(0);
 		}
 		
 		@include media-breakpoint-down(md) {
-			padding: 0 30px 0 20px;
+			&.left, &.right {
+				transform: translateY(30px);
+            }
 		}
 		
 		@include media-breakpoint-down(xs) {
-			padding: 0 15px 0 20px;
-			
 			& > * {
 				font-size: 1.25rem;
 			}
-		}
-	}
-	
-	.left {
-		transform: translateX(-30px);
-		
-		@include media-breakpoint-down(md) {
-			transform: translateY(30px);
-		}
-	}
-	
-	.right {
-		transform: translateX(30px);
-		
-		@include media-breakpoint-down(md) {
-			transform: translateY(30px);
 		}
 	}
 	
