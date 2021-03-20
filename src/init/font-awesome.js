@@ -10,6 +10,7 @@ import {
     faAward as faAwardSolid,
     faMobileAlt as faMobileAltSolid,
     faChartPie as faChartPieSolid,
+    faTimes as faTimesSolid,
 } from "@fortawesome/pro-solid-svg-icons";
 
 import {
@@ -38,6 +39,7 @@ library.add(
     faAwardSolid,
     faMobileAltSolid,
     faChartPieSolid,
+    faTimesSolid,
     
     faBarsProRegular,
     

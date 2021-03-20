@@ -22,8 +22,8 @@ img {
 	}
 	
 	&.bottom {
-		top: 100px;
-		height: calc(100% - 100px);
+		top: 108px;
+		height: calc(100% - 108px);
 		z-index: 4;
 	}
 	
@@ -38,8 +38,8 @@ img {
 		left: calc(12px + 48px / 2 - 10px / 2);
 		
 		&.bottom {
-			top: calc(16px + 50px);
-			height: calc(100% - 66px);
+			top: 68px;
+			height: calc(100% - 68px);
 		}
 	}
 }

@@ -260,6 +260,10 @@ html,
 body {
     position: relative;
     //height: 100%;
+	
+	// b-modal applies padding-right: 18px, not sure if it's used to accommodate scroll bar width but it does screwup
+	// the body style
+	padding-right: 0 !important;
 
     //background-color: rgba(245, 245, 245, 1);
     background-color: #2E4F5E;
