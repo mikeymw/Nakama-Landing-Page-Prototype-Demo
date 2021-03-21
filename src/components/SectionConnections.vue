@@ -366,7 +366,7 @@ export default {
 		    transition: all .15s ease;
 		
 		    &:hover {
-			    transform: scale(1.03);
+			    transform: scale(1.05);
 		    }
 		
 		    &:active {

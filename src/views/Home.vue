@@ -36,5 +36,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home {
+	height: 100%;
+	overflow-y: scroll;
+}
 
 </style>
