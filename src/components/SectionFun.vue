@@ -132,7 +132,7 @@ export default {
 				{ image: "activity_8.jpg", captions: "✈泰國布吉之旅🏖" },
 				{ image: "activity_9.jpg", captions: "🌊大浪灣之旅🏄‍♀️" },
 				{ image: "activity_10.jpg", captions: "🐕至叻寵物團🐾" },
-				{ image: "activity_11.jpg", captions: "🕺至High夜蒲團🍾" },
+				{ image: "activity_11.jpg", captions: "🕺喜愛夜蒲團🍾" },
 				{ image: "activity_12.jpg", captions: "🏮中秋花燈手工班🥮" },
 			]
 		}
@@ -209,6 +209,7 @@ export default {
 			opacity: 0;
 			transform: scale(.75);
 			cursor: pointer;
+            user-select: none;
 			z-index: 9;
 			transition: all .75s ease-out;
 			

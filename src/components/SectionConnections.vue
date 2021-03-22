@@ -1,6 +1,6 @@
 <template>
     <div class="position-relative w-100 py-4 section-connections">
-        <img v-bind:src="require('../assets/section_connections.jpg')" alt="Hero Image"
+        <img v-bind:src="require('../assets/section_connections.jpg')" alt="Connection Background Image"
              class="position-absolute w-100 h-100">
         <div class="position-absolute w-100 h-100 image-overlay"></div>
         <div class="position-absolute line top"></div>
