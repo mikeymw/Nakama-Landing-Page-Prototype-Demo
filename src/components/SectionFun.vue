@@ -63,7 +63,7 @@
 			</div>
 		</div>
 		<h1 class="mb-0 font-weight-bold">FUN</h1>
-		<div class="container-fluid pr-4 pl-lg-4">
+		<div class="container-fluid pt-2 pr-4 pl-lg-4">
 			<div class="row">
 				<div v-for="(activity, index) in activities" v-bind:key="activity.image"
 				     class="col-6 col-sm-4 col-md-3 px-3 px-md-3 px-lg-4 py-4">

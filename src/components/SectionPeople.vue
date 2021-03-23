@@ -11,19 +11,27 @@
                 <div class="w-100 h-100 bg-white icon-glow-people"></div>
             </div>
         </div>
-        <h1 class="mb-0 font-weight-bold">PEOPLE</h1>
-        <mono-profile v-bind:profile="founder"></mono-profile>
+        <h1 class="mb-0 text-white font-weight-bold">PEOPLE</h1>
+        <mono-profile v-bind:profile="founder" v-bind:is-male="true" class="mt-3"></mono-profile>
+        <mono-profile v-bind:profile="leadOrganizer" v-bind:is-male="true"></mono-profile>
+        <mono-profile v-bind:profile="organizerOne" v-bind:is-male="false"></mono-profile>
+        <mono-profile v-bind:profile="organizerTwo" v-bind:is-male="false"></mono-profile>
+        <duo-profile v-bind:profile-left="organizerOne"
+                     v-bind:profile-right="organizerTwo"
+                     v-bind:is-male="false"></duo-profile>
     </div>
 </template>
 
 <script>
 import MonoProfile from "@/components/MonoProfile";
+import DuoProfile from "@/components/DuoProfile";
 
 export default {
     name: "SectionPeople",
 
     components: {
         MonoProfile,
+        DuoProfile
     },
 
     data() {
@@ -79,7 +87,7 @@ export default {
 		}
 
 		&.bottom {
-			background-image: linear-gradient(to bottom, #FFFFFF, #18CAE6 40%, #DA82B2 100%);
+			background-image: linear-gradient(to bottom, #FFFFFF, #18CAE6 30%, #DA82B2 50%);
 			box-shadow: 0 0 14px 0 #18CAE6;
 		}
 	}
@@ -88,12 +96,8 @@ export default {
 		filter: drop-shadow(0 0 16px #18CAE6);
 
         .icon-glow-people {
-	        clip-path: polygon(50% 0%, 85% 20%, 75% 50%, 100% 85%, 0 85%, 25% 50%, 15% 20%);
+	        clip-path: polygon(50% 0%, 85% 20%, 75% 50%, 95% 90%, 5% 90%, 25% 50%, 15% 20%);
         }
-	}
-
-	h1 {
-		color: #FFFFFF;
 	}
 }
 </style>

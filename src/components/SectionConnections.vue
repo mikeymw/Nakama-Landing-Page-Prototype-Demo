@@ -94,12 +94,16 @@
             </div>
             <div class="row pt-4 py-sm-4 py-lg-5 button-wrapper">
                 <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 justify-content-center px-5">
-                    <div class="mx-auto download-button" v-on:click="downloadApp">
+                    <div class="position-relative mx-auto download-button">
+                        <a href="https://apps.apple.com/us/app/nakama%E6%B4%BB%E5%8B%95%E4%BA%A4%E5%8F%8B%E5%B9%B3%E5%8F%B0/id1501522323"
+                           class="position-absolute w-100 h-100"></a>
                         <img v-bind:src="require('../assets/apple_download.png')" alt="Apple Download" class="h-100">
                     </div>
                 </div>
                 <div class="col-11 offset-1 col-sm-5 col-lg-6 offset-lg-0 mb-4 mb-sm-0 justify-content-center px-5">
-                    <div class="mx-auto download-button" v-on:click="downloadApp">
+                    <div class="position-relative mx-auto download-button">
+                        <a href="https://play.google.com/store/apps/details?id=club.nakama.app&hl=en&gl=US"
+                           class="position-absolute w-100 h-100"></a>
                         <img v-bind:src="require('../assets/google_download.png')" alt="Android Download" class="h-100">
                     </div>
                 </div>
@@ -128,12 +132,6 @@ export default {
         observer.observe(mobileContent);
         contents.forEach(content => observer.observe(content));
         observer.observe(buttonWrapper);
-    },
-    
-    methods: {
-        downloadApp() {
-        
-        }
     }
 }
 </script>
@@ -364,6 +362,11 @@ export default {
 		    cursor: pointer;
 		    z-index: 9;
 		    transition: all .15s ease;
+
+            a {
+                top: 0;
+                left: 0;
+            }
 		
 		    &:hover {
 			    transform: scale(1.05);
