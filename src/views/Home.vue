@@ -5,6 +5,7 @@
         <section-connections></section-connections>
         <section-fun></section-fun>
         <section-people></section-people>
+        <custom-footer></custom-footer>
 	</div>
 </template>
 
@@ -14,6 +15,7 @@ import SectionInspirations from "@/components/SectionInspirations";
 import SectionConnections from "@/components/SectionConnections";
 import SectionFun from "@/components/SectionFun";
 import SectionPeople from "@/components/SectionPeople";
+import CustomFooter from "@/components/CustomFooter";
 
 export default {
 	name: "Home",
@@ -23,6 +25,7 @@ export default {
         SectionConnections,
         SectionFun,
         SectionPeople,
+        CustomFooter
 	},
 	data () {
 		return {
@@ -39,10 +42,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
-	height: 100%;
-    overflow-x: hidden;
-	overflow-y: scroll;
-}
 
 </style>

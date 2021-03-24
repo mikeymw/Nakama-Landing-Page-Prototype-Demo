@@ -5,6 +5,19 @@ img {
 	z-index: -100;
 }
 
+h1 {
+	padding: 14px 70px;
+	
+	@include media-breakpoint-down(md) {
+		padding: 14px 140px;
+	}
+	
+	@include media-breakpoint-down(xs) {
+		font-size: 1.75rem;
+		padding: 1px 80px;
+	}
+}
+
 .image-overlay {
 	backdrop-filter: blur(6px);
 	z-index: -99;
@@ -79,15 +92,23 @@ img {
 	}
 }
 
-h1 {
-	padding: 14px 70px;
+.download-button {
+	width: fit-content;
+	object-fit: contain;
+	cursor: pointer;
+	z-index: 9;
+	transition: all .15s ease;
 	
-	@include media-breakpoint-down(md) {
-		padding: 14px 140px;
+	a {
+		top: 0;
+		left: 0;
 	}
 	
-	@include media-breakpoint-down(xs) {
-		font-size: 1.75rem;
-		padding: 1px 80px;
+	&:hover {
+		transform: scale(1.05);
+	}
+	
+	&:active {
+		transform: scale(1.03) translateY(3px);
 	}
 }

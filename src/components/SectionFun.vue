@@ -76,20 +76,20 @@
 				</div>
 			</div>
 		</div>
-		<b-modal id="ImageModal" centered hide-header hide-footer
+		<b-modal id="ImageModal" centered hide-header hide-footer scrollable
 		         v-model="showModal"
 		         v-bind:return-focus="triggerElementId"
 		         v-bind:size="modalSize"
 		         v-bind:body-class="'p-0'">
-			<div class="position-relative w-100 h-100 modal-wrapper">
+			<div class="position-relative overflow-auto w-100 modal-wrapper">
+                <button type="button" v-on:click="showModal = false"
+                        class="position-absolute border-0 rounded-circle d-flex justify-content-center align-items-center"
+                        style="width: 36px; height: 36px; top: 6px; right: 6px; background-color: rgba(0,0,0,.5)">
+                    <font-awesome-icon v-bind:icon="['fas', 'times']"
+                                       style="font-size: 1.5rem; color: white"></font-awesome-icon>
+                </button>
 				<img v-bind:src="require(`../assets/${modalContent.image}`)" v-bind:alt="modalContent.captions"
-				     class="w-100 h-100">
-				<button type="button" v-on:click="showModal = false"
-				        class="position-absolute border-0 rounded-circle d-flex justify-content-center align-items-center"
-				        style="width: 36px; height: 36px; top: 6px; right: 6px; background-color: rgba(0,0,0,.5)">
-					<font-awesome-icon v-bind:icon="['fas', 'times']"
-					                   style="font-size: 1.5rem; color: white"></font-awesome-icon>
-				</button>
+				     class="w-100">
 			</div>
 		</b-modal>
 	</div>
@@ -119,7 +119,7 @@ export default {
 		return {
 			showModal: false,
 			modalSize: "md",
-			triggerElementId: "Activity0",
+			triggerElementId: "#Activity0",
 			modalContent: { image: "activity_1.jpg", captions: "🎃海洋公園哈囉喂👻" },
 			activities: [
 				{ image: "activity_1.jpg", captions: "🎃海洋公園哈囉喂👻" },
@@ -232,7 +232,7 @@ export default {
 		}
 	}
 	
-	.modal-image-wrapper {
+	.modal-wrapper {
 		padding: 0;
 	}
 }

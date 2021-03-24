@@ -26,7 +26,10 @@ import {
 } from "@fortawesome/pro-duotone-svg-icons";
 
 import {
-
+    faWhatsapp,
+    faFacebookSquare,
+    faInstagramSquare,
+    faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -44,4 +47,9 @@ library.add(
     faBarsProRegular,
     
     faUserCircleProDuotone,
+    
+    faWhatsapp,
+    faFacebookSquare,
+    faInstagramSquare,
+    faYoutube,
 );

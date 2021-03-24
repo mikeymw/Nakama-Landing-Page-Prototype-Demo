@@ -356,26 +356,8 @@ export default {
         }
         
 	    .download-button {
-		    width: fit-content;
 		    height: 80px;
-		    object-fit: contain;
-		    cursor: pointer;
-		    z-index: 9;
-		    transition: all .15s ease;
 
-            a {
-                top: 0;
-                left: 0;
-            }
-		
-		    &:hover {
-			    transform: scale(1.05);
-		    }
-		
-		    &:active {
-			    transform: scale(1.03) translateY(3px);
-		    }
-		
 		    @include media-breakpoint-down(sm) {
 			    height: 60px;
 		    }
