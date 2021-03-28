@@ -44,7 +44,9 @@
                  v-model="showModal"
                  v-bind:return-focus="triggerElementId"
                  v-bind:size="modalSize">
-            <h3 slot="modal-title">{{modalTitle}}</h3>
+            <template v-slot:modal-title>
+                <h3>{{modalTitle}}</h3>
+            </template>
             <h6 class="position-relative w-100">{{modalContent}}</h6>
         </b-modal>
     </div>
